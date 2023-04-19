@@ -1,0 +1,69 @@
+public interface ICar
+{
+    void Start();
+    void Accelerate();
+    void Brake();
+}
+
+public interface IAirplane
+{
+    void TakeOff();
+    void Fly();
+    void Land();
+}
+
+public class Car : ICar
+{
+    public void Start()
+    {
+        Console.WriteLine("Starting the car.");
+    }
+
+    public void Accelerate()
+    {
+        Console.WriteLine("Accelerating the car.");
+    }
+
+    public void Brake()
+    {
+        Console.WriteLine("Braking the car.");
+    }
+}
+
+public class Airplane : IAirplane
+{
+    public void TakeOff()
+    {
+        Console.WriteLine("Taking off the airplane.");
+    }
+
+    public void Fly()
+    {
+        Console.WriteLine("Flying the airplane.");
+    }
+
+    public void Land()
+    {
+        Console.WriteLine("Landing the airplane.");
+    }
+}
+
+public class Driver
+{
+    public void Drive(ICar car)
+    {
+        car.Start();
+        car.Accelerate();
+        car.Brake();
+    }
+}
+
+public class Pilot
+{
+    public void Fly(IAirplane airplane)
+    {
+        airplane.TakeOff();
+        airplane.Fly();
+        airplane.Land();
+    }
+}
