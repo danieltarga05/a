@@ -1,0 +1,17 @@
+public class User
+{
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public void Save()
+    {
+        // Salva l'utente nel database
+    }
+}
+
+public class EmailSender
+{
+    public void SendEmail(User user, string message)
+    {
+        // Invia un'email all'utente
+    }
+}
