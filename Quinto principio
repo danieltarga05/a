@@ -1,0 +1,42 @@
+public interface ILogger
+{
+    void Log(string message);
+}
+
+public class FileLogger : ILogger
+{
+    public void Log(string message)
+    {
+        // Log the message to a file.
+    }
+}
+
+public class EmailLogger : ILogger
+{
+    public void Log(string message)
+    {
+        // Send an email with the message.
+    }
+}
+
+public class User
+{
+    private ILogger _logger;
+
+    public User(ILogger logger)
+    {
+        _logger = logger;
+    }
+
+    public void DoSomething()
+    {
+        try
+        {
+            // Do something.
+        }
+        catch (Exception ex)
+        {
+            _logger.Log(ex.Message);
+        }
+    }
+}
