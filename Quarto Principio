@@ -1,69 +1,67 @@
-public interface ICar
+public interface IAnimal
 {
-    void Start();
-    void Accelerate();
-    void Brake();
+    void Eat();
+    void Sleep();
 }
 
-public interface IAirplane
+public interface ICarnivore
 {
-    void TakeOff();
-    void Fly();
-    void Land();
+    void Hunt();
 }
 
-public class Car : ICar
+public interface IHerbivore
 {
-    public void Start()
-    {
-        Console.WriteLine("Starting the car.");
-    }
-
-    public void Accelerate()
-    {
-        Console.WriteLine("Accelerating the car.");
-    }
-
-    public void Brake()
-    {
-        Console.WriteLine("Braking the car.");
-    }
+    void Graze();
 }
 
-public class Airplane : IAirplane
+public class Lion : IAnimal, ICarnivore
 {
-    public void TakeOff()
+    public void Eat()
     {
-        Console.WriteLine("Taking off the airplane.");
+        Console.WriteLine("Lion is eating.");
     }
 
-    public void Fly()
+    public void Sleep()
     {
-        Console.WriteLine("Flying the airplane.");
+        Console.WriteLine("Lion is sleeping.");
     }
 
-    public void Land()
+    public void Hunt()
     {
-        Console.WriteLine("Landing the airplane.");
+        Console.WriteLine("Lion is hunting.");
     }
 }
 
-public class Driver
+public class Giraffe : IAnimal, IHerbivore
 {
-    public void Drive(ICar car)
+    public void Eat()
     {
-        car.Start();
-        car.Accelerate();
-        car.Brake();
+        Console.WriteLine("Giraffe is eating.");
+    }
+
+    public void Sleep()
+    {
+        Console.WriteLine("Giraffe is sleeping.");
+    }
+
+    public void Graze()
+    {
+        Console.WriteLine("Giraffe is grazing.");
     }
 }
 
-public class Pilot
+public class Zookeeper
 {
-    public void Fly(IAirplane airplane)
+    public void Feed(ICarnivore animal)
     {
-        airplane.TakeOff();
-        airplane.Fly();
-        airplane.Land();
+        animal.Eat();
+    }
+}
+
+public class Parkkeeper
+{
+    public void Feed(IHerbivore animal)
+    {
+        animal.Eat();
     }
 }
